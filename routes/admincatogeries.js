@@ -5,7 +5,7 @@ const isAdmin = auth.isAdmin;
 //get catogery model
 const Catogeries = require("../models/catogery");
 //get catogeries
-router.get("/", (req, res) => {
+router.get("/", isAdmin, (req, res) => {
   Catogeries.find({})
     .sort({ sorting: 1 })
     .exec((err, catogeries) => {
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     });
 });
 //get add catogeries
-router.get("/add-catogery", (req, res) => {
+router.get("/add-catogery", isAdmin, (req, res) => {
   var title = "";
   var slug = "";
   res.render("admin/add-catogery", {
@@ -85,7 +85,7 @@ router.post("/reorder-catogeries", (req, res) => {
   }
 });
 //get edit catogery
-router.get("/edit-catogery/:slug", (req, res) => {
+router.get("/edit-catogery/:slug", isAdmin, (req, res) => {
   Catogeries.findOne({ slug: req.params.slug }, (err, catogery) => {
     if (err) console.log(err);
     console.log(`${req.params.slug} edit catogery page`);
@@ -139,7 +139,7 @@ router.post("/edit-catogery", (req, res) => {
   );
 });
 //delete catogery
-router.get("/delete-catogery/:id", (req, res) => {
+router.get("/delete-catogery/:id", isAdmin, (req, res) => {
   Catogeries.findByIdAndDelete({ _id: req.params.id }, (err, catogery) => {
     if (err) console.log(err);
     //get all catogeries to pass to header.ejs

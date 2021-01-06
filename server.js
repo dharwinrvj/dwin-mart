@@ -34,13 +34,14 @@ app.set("view engine", "ejs");
 app.locals.errors = null;
 app.locals.cart = null;
 app.locals.user = null;
+app.locals.pages = null;
 //global variables
 //get all pages to pass to header.ejs
 Pages.find({})
   .sort({ sorting: 1 })
   .exec((err, pages) => {
     if (err) return console.log(err);
-    app.locals.pages = pages || null;
+    app.locals.pages = pages;
   });
 //get all catogeries to pass to header.ejs
 Catogeries.find({})
@@ -141,7 +142,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 //server
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 3030;
 app.listen(port, () => {
   console.log("application is started " + port);
 });

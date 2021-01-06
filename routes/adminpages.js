@@ -16,7 +16,7 @@ router.get("/", isAdmin, (req, res) => {
     });
 });
 //get add pages
-router.get("/add-page", (req, res) => {
+router.get("/add-page", isAdmin, (req, res) => {
   var title = "";
   var slug = "";
   var content = "";
@@ -90,7 +90,7 @@ router.post("/reorder-pages", (req, res) => {
   }
 });
 //get edit page
-router.get("/edit-page/:slug", (req, res) => {
+router.get("/edit-page/:slug", isAdmin, (req, res) => {
   Pages.findOne({ slug: req.params.slug }, (err, page) => {
     if (err) console.log(err);
     console.log(`${req.params.slug} edit page`);
@@ -144,7 +144,7 @@ router.post("/edit-page", (req, res) => {
   });
 });
 //delete catogery
-router.get("/delete-page/:id", (req, res) => {
+router.get("/delete-page/:id", isAdmin, (req, res) => {
   Pages.findByIdAndDelete({ _id: req.params.id }, (err, page) => {
     if (err) console.log(err);
     //get all pages to pass to header.ejs

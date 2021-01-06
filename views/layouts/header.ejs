@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <nav style="background-color: rgb(231, 147, 248);" class="navbar navbar-expand-md sticky-top navbar-light">
+  <nav style="background-color: rgba(247, 171, 8, 0.829);" class="navbar navbar-expand-md sticky-top navbar-light">
     <a class="navbar-brand" href="/"><img src="/favicon-32x32.png"> DWinMart</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
       aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,10 +99,10 @@
         <h4 class="mb-3"><img src="https://img.icons8.com/nolan/64/database.png" />Catogeries</h4>
         <div  class="list-group" id="list-tab" role="tablist">
          
-          <a style="background-color: rgba(231, 147, 248, 0.678);" class="list-group-item list-group-item-action" href="/products"><img
+          <a style="background-color: rgba(247, 171, 8, 0.829);" class="list-group-item list-group-item-action" href="/products"><img
               src="https://img.icons8.com/nolan/30/select-all.png" />All Products</a>
           <% catogeries.forEach(catogery=>{ %>
-          <a style="background-color: rgba(231, 147, 248, 0.678);" class="list-group-item list-group-item-action" href="/products/<%= catogery.slug %>"><img
+          <a style="background-color: rgba(247, 171, 8, 0.829);" class="list-group-item list-group-item-action" href="/products/<%= catogery.slug %>"><img
               src="https://img.icons8.com/nolan/30/product.png" /><%= catogery.title %></a>
           <% }) %>
         </div>

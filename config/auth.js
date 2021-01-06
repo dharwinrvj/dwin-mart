@@ -7,8 +7,7 @@ exports.isUser = (req, res, next) => {
   }
 };
 exports.isAdmin = (req, res, next) => {
-  res.locals.user.admin=null;
-  if (req.isAuthenticated && res.locals.user.admin == 0) {
+  if (req.isAuthenticated && res.locals.user && res.locals.user.admin == 0) {
     next();
   } else {
     req.flash("danger", "Please LogIn as Admin !");

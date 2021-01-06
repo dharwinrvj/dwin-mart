@@ -1,0 +1,18 @@
+<%- include('layouts/header.ejs') %>
+<h4>
+    <%= title %>
+</h4>
+<form method="POST" action="/users/login">
+    <div class="form-group">
+        <label for="name">User Name</label>
+        <input required style="background-color: rgba(231, 147, 248, 0.678);" type="text" class="form-control" name="username" id="username" placeholder="User Name">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input required style="background-color: rgba(231, 147, 248, 0.678);" type="password" class="form-control" name="password" id="password" placeholder="Password">
+        <small id="help" class="form-text text-muted">New User ?<a href="/users/register"> <img src="https://img.icons8.com/nolan/20/add-user-male.png"/>Register </a>here.</small>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">LogIn</button>
+</form>
+<%- include('layouts/footer.ejs') %>

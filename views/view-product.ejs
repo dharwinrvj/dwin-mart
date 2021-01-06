@@ -1,0 +1,39 @@
+<%- include('layouts/header.ejs') %>
+<div class="row view-product">
+
+    <div class="col-sm-12 col-md-4 mb-3 ">
+        <h5 class="page-header">
+            <%= title %>
+        </h5>
+        <img  src="/product-images/<%= product._id %>/<%= product.image %>"
+            class="pimage img-responsive img-thumbnail rounded mx-auto d-block " alt="no-preview-available">
+    </div>
+    <div class="col-sm-12 col-md-8 my-auto text-center">
+        <%- product.desc %>
+        <p>
+            ₹<%= parseFloat(product.price).toFixed(2) %>
+        </p>
+        <% if(loggedin){ %> 
+        <a class="btn btn-success" href="/cart/add/<%= product.slug %>">Add to Cart</a>
+        <% }else{ %> 
+            <a class="btn btn-warning" href="/users/login">You must be LoggedIn to purchase items !</a>
+            <% } %> 
+    </div>
+    <!--https://fancyapps.com/fancybox/3/-->
+    <div class="col-sm-12 text-center">
+        <ul class="gallery">
+            <% galleryimages.forEach(image=>{ %>
+            <% if(image!='thumbs'){ %>
+            <li>
+                <a data-fancybox="gallery" class="img-responsive" href="/product-images/<%= product._id %>/gallery/<%= image %>">
+                    <img src="/product-images/<%= product._id %>/gallery/thumbs/<%= image %>" alt="product-gallery"
+                        class="img-responsive img-thumbnail rounded m-3">
+                </a>
+            </li>
+            <% } %>
+            <% }) %>
+        </ul>
+
+    </div>
+</div>
+<%- include('layouts/footer.ejs') %>

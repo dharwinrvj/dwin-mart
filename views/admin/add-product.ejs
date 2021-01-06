@@ -1,0 +1,49 @@
+<%- include('../layouts/adminheader.ejs') %>
+<h2 class="page-title my-2">Add Product</h2>
+<a href="/admin/products" class="btn btn-primary mb-3">Back to All Products</a>
+<form method="POST" action="/admin/products/add-product" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input required type="text" class="form-control" name="title" value="<%= title %>" id="title"
+            placeholder="Title">
+    </div>
+    <div class="form-group">
+        <label for="desc">Description</label>
+        <textarea required type="text" id="ta" class="form-control" name="desc" cols="30" rows="10"
+            placeholder="Description"><%= desc %></textarea>
+    </div>
+    <div class="form-group">
+        <label for="catogery">Catogery</label>
+        <select id="catogery" class="form-control" name="catogery">
+            <% catogeries.forEach(catogery=>{ %>
+            <option value="<%= catogery.slug%>"><%= catogery.title %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input required type="number" class="form-control" name="price" value="<%= price %>" id="price"
+            placeholder="Price">
+    </div>
+    <div class="form-group">
+        <label for="image">Image</label>
+        <input required type="file" class="form-control" name="image" id="image" placeholder="Image">
+        <img src="#" id="imgpreview" alt="img-preview" class="img-responsive  rounded mx-auto d-block my-2">
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+</form>
+<script>
+    function readUrl(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imgpreview').attr('src', e.target.result).width(200).height(200);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    };
+    $('#image').change(function () {
+        readUrl(this);
+    });
+</script>
+<%- include('../layouts/adminfooter.ejs') %>

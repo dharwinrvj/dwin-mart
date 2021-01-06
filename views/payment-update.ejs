@@ -1,0 +1,17 @@
+<%- include('layouts/header.ejs') %>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <% if(content=="success"){ %>
+        <h4>
+            Your Payment is Successfull !.... Contimue Your Shopping with DMart.
+        </h4>
+        <a href="/" class="btn btn-success">Home</a>
+        <% }else{ %>
+            <h4>
+                Your Payment is UnSuccessfull !.... Try Again !!!
+            </h4>
+            <a href="/cart/checkout" class="btn btn-success">CheckOut Again</a>
+        <% } %>
+    </div>
+</div>
+<%- include('layouts/footer.ejs') %>

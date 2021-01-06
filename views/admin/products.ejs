@@ -1,0 +1,51 @@
+<%- include('../layouts/adminheader.ejs') %>
+<h2 class="page-title my-2">Products</h2>
+<a href="/admin/products/add-product" class="btn btn-primary mb-3">Add a Product</a>
+<% if(count>0){ %>
+<div class="table-responsive text-center ">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr class="home">
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Catogery</th>
+                <th scope="col">Product Image</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product=>{ %>
+            <tr id="id_<%= product._id %>" %> ">
+                <td><%= product.title %></td>
+                <td><%= product.price %></td>
+                <td><%= product.catogery %></td>
+                <td>
+                    <% if(product.image==""){ %>
+                    <img id="no-image" src="/images/no-image.jpg" alt="no-image"
+                        class="img-responsive img-thumbnail rounded ">
+                    <% }else{ %>
+                    <img id="product-img" src="/product-images/<%= product._id %>/<%= product.image %>"
+                        class="img-responsive img-thumbnail rounded mx-auto d-block" alt="img for <%= product.title %>">
+                    <% } %>
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-info" href="/admin/products/edit-product/<%= product._id %>">Edit</a>
+                </td>
+                <td>
+                    <a class="confirmDelete btn btn-outline-danger"
+                        href="/admin/products/delete-product/<%= product._id %> ">Delete</a>
+                </td>
+
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<% }else{ %>
+<h2 class="text-center">There are no Products</h2>
+<% } %>
+
+
+<%- include('../layouts/adminfooter.ejs') %>

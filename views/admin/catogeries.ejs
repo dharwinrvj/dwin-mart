@@ -1,0 +1,46 @@
+<%- include('../layouts/adminheader.ejs') %>
+<h2 class="page-title my-2">Catogeries</h2>
+<a href="/admin/catogeries/add-catogery" class="btn btn-primary mb-3">Add a Catogery</a>
+<% if(catogeries.length>0){ %>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover text-center">
+        <thead class="thead-light">
+            <tr class="home">
+                <th scope="col">Catogery</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% catogeries.forEach(catogery=>{ %>
+            <tr id="id_<%= catogery._id %>" class="<%= catogery.slug %> ">
+                <td><%= catogery.title %></td>
+                <td>
+                    <a class="btn btn-outline-info" href="/admin/catogeries/edit-catogery/<%= catogery.slug %> ">Edit</a>
+                </td>
+                <td>
+                    <a class="confirmDelete btn btn-outline-danger" href="/admin/catogeries/delete-catogery/<%= catogery._id %> ">Delete</a>
+                </td>
+
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<% }else{ %>
+<h2 class="text-center">There are no Catogeries</h2>
+<% } %>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    $('tbody').sortable({
+        items: "tr:not('.home')",
+        placeholder: "ui-state-hightlight",
+        update: function () {
+            var ids = $('tbody').sortable("serialize");
+            var url = "/admin/catogeries/reorder-catogeries";
+            $.post(url, ids);
+        }
+    });
+</script>
+
+<%- include('../layouts/adminfooter.ejs') %>

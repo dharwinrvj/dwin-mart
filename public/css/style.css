@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(245, 208, 245);
+      }
+img.pimage {
+    height: 200px;
+    width: 200px;
+}
+
+ul.gallery {
+    padding: 0;
+}
+
+ul.gallery li:first-child {
+    margin-left: 0;
+}
+
+ul.gallery li {
+    margin: 20px;
+    display: inline;
+}
+
+img.cart-product {
+    width: 100px;
+    height: 100px;
+}
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

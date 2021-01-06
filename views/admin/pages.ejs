@@ -1,0 +1,49 @@
+<%- include('../layouts/adminheader.ejs') %>
+<h2 class="page-title my-2">Pages</h2>
+<a href="/admin/pages/add-page" class="btn btn-primary mb-3">Add a New Pages</a>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover text-center">
+        <thead class="thead-light">
+            <tr class="home">
+                <th scope="col">Title</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pages.forEach(page=>{ %>
+            <tr id="id_<%= page._id %>" class="<%= page.slug %> ">
+                <td><%= page.title %></td>
+                <td>
+                    <a class="btn btn-outline-info" href="/admin/pages/edit-page/<%= page.slug %> ">Edit</a>
+                </td>
+                <% if(page.slug=='home') {%>
+                <td>
+
+                </td>
+                <% }else{ %>
+                <td>
+                    <a class="confirmDelete btn btn-outline-danger" href="/admin/pages/delete-page/<%= page._id %> ">Delete</a>
+                </td>
+                <% } %>
+            </tr>
+            <% }) %>
+
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    $('tbody').sortable({
+        items: "tr:not('.home')",
+        placeholder: "ui-state-hightlight",
+        update: function () {
+            var ids = $('tbody').sortable("serialize");
+            var url = "/admin/pages/reorder-pages";
+            $.post(url, ids);
+        }
+    });
+</script>
+
+<%- include('../layouts/adminfooter.ejs') %>

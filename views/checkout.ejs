@@ -80,8 +80,8 @@
                 <input type="hidden" name="handling_<%= num %>" value="<%= (0.01 * p.price *p.qty) %>">
                 <% }); %>
                 <input type="hidden" name="currency_code" value="INR" />
-                <input type="hidden" name="return" value="http://dmart-appherokuapp.com/cart/payment-success" />
-                <input type="hidden" name="cancel_return" value="http://dmart-appherokuapp.com/cart/payment-failed" />
+                <input type="hidden" name="return" value="http://dwin-mart.herokuapp.com/cart/payment-success" />
+                <input type="hidden" name="cancel_return" value="http://dwin-mart.herokuapp.com/cart/payment-failed" />
                 <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png"
                   style="background-color: rgb(121, 245, 121);"  class="btn" alt="PayPal" name="submit">
             </form>

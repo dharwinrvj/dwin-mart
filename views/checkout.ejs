@@ -36,16 +36,17 @@
                             <%= product.qty %>
                         </td>
                         <td>
-                            <a class="btn btn-danger m-1" href="/cart/update/<%= product.title %>?action=add">+</a>
-                            <a class="btn btn-danger m-1" href="/cart/update/<%= product.title %>?action=sub">-</a>
-                            <a class="btn btn-danger m-1"
+                            <a class="btn btn-sm btn-danger m-1"
+                                href="/cart/update/<%= product.title %>?action=add">+</a>
+                            <a class="btn btn-sm btn-danger m-1"
+                                href="/cart/update/<%= product.title %>?action=sub">-</a>
+                            <a class="btn btn-sm btn-danger m-1"
                                 href="/cart/update/<%= product.title %>?action=clear">Clear</a>
                         </td>
                         <td>
                             ₹<%= parseFloat(subtotal).toFixed(2); %>
                         </td>
                     </tr>
-
                     <% }); %>
                     <tr>
                         <td colspan="5" align="right">
@@ -58,7 +59,6 @@
                         </td>
                     </tr>
                 </tbody>
-
             </table>
         </div>
         <a href="/cart/clear" class="btn btn-danger confirmDelete mb-1">Clear Cart</a>
@@ -83,7 +83,7 @@
                 <input type="hidden" name="return" value="http://dwin-mart.herokuapp.com/cart/payment-success" />
                 <input type="hidden" name="cancel_return" value="http://dwin-mart.herokuapp.com/cart/payment-failed" />
                 <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png"
-                  style="background-color: rgb(121, 245, 121);"  class="btn" alt="PayPal" name="submit">
+                    style="background-color: rgb(121, 245, 121);" class="btn" alt="PayPal" name="submit">
             </form>
         </div>
         <% }else{ %>

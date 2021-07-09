@@ -1,6 +1,6 @@
 <%- include('../layouts/adminheader.ejs') %>
-<h2 class="page-title my-2">Catogeries</h2>
-<a href="/admin/catogeries/add-catogery" class="btn btn-primary mb-3">Add a Catogery</a>
+<h4 class="page-title my-2">Catogeries</h4>
+<a href="/admin/catogeries/add-catogery" class="btn btn-sm btn-primary mb-3">Add a Catogery</a>
 <% if(catogeries.length>0){ %>
 <div class="table-responsive">
     <table class="table table-bordered table-hover text-center">
@@ -16,10 +16,10 @@
             <tr id="id_<%= catogery._id %>" class="<%= catogery.slug %> ">
                 <td><%= catogery.title %></td>
                 <td>
-                    <a class="btn btn-outline-info" href="/admin/catogeries/edit-catogery/<%= catogery.slug %> ">Edit</a>
+                    <a class="btn btn-sm btn-outline-info" href="/admin/catogeries/edit-catogery/<%= catogery.slug %> ">Edit</a>
                 </td>
                 <td>
-                    <a class="confirmDelete btn btn-outline-danger" href="/admin/catogeries/delete-catogery/<%= catogery._id %> ">Delete</a>
+                    <a class="confirmDelete btn btn-sm btn-outline-danger" href="/admin/catogeries/delete-catogery/<%= catogery._id %> ">Delete</a>
                 </td>
 
             </tr>

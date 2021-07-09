@@ -116,9 +116,6 @@ router.post("/add-product", (req, res) => {
 });
 //get edit page
 router.get("/edit-product/:id", isAdmin, (req, res) => {
-  var errors;
-  if (req.session.errors) errors = req.session.errors;
-  req.session.errors = null;
   Products.findOne({ _id: req.params.id }, (err, product) => {
     if (err) console.log(err);
     console.log(`${product.slug} edit product page`);
@@ -133,7 +130,6 @@ router.get("/edit-product/:id", isAdmin, (req, res) => {
             galleryimages = files;
             res.render("admin/edit-product", {
               title: product.title,
-              errors: errors,
               desc: product.desc,
               catogeries: catogeries,
               catogery: product.catogery,

@@ -1,9 +1,8 @@
 <%- include('layouts/header.ejs') %>
 <div class="row all-products text-center">
     <% products.forEach(product=>{ %>
-
-    <div style="background-color: rgba(247, 171, 8, 0.829);" class="col-sm-12 col-md-3  shadow-lg py-2 mb-2 mx-4 rounded">
-
+    <div style="background-color: rgba(247, 171, 8, 0.829);"
+        class="col-sm-12 col-md-3  shadow-lg py-2 mb-2 mx-4 rounded">
         <a href="/products/<%= product.catogery %>/<%= product.slug %>">
             <img src="/product-images/<%= product._id %>/<%= product.image %>" alt="no-image"
                 class="pimage img-responsive img-thumbnail rounded">
@@ -14,12 +13,7 @@
         <p class="m-0">
             ₹<%= parseFloat(product.price).toFixed(2) %>
         </p>
-
-      
-
     </div>
-
-
     <% }) %>
 </div>
 <%- include('layouts/footer.ejs') %>

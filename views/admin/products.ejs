@@ -1,6 +1,6 @@
 <%- include('../layouts/adminheader.ejs') %>
-<h2 class="page-title my-2">Products</h2>
-<a href="/admin/products/add-product" class="btn btn-primary mb-3">Add a Product</a>
+<h4 class="page-title my-2">Products</h4>
+<a href="/admin/products/add-product" class="btn btn-sm btn-primary mb-3">Add a Product</a>
 <% if(count>0){ %>
 <div class="table-responsive text-center ">
     <table class="table table-bordered table-hover">
@@ -31,10 +31,10 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-outline-info" href="/admin/products/edit-product/<%= product._id %>">Edit</a>
+                    <a class="btn btn-sm btn-outline-info" href="/admin/products/edit-product/<%= product._id %>">Edit</a>
                 </td>
                 <td>
-                    <a class="confirmDelete btn btn-outline-danger"
+                    <a class="confirmDelete btn-sm btn btn-outline-danger"
                         href="/admin/products/delete-product/<%= product._id %> ">Delete</a>
                 </td>
 

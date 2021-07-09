@@ -1,6 +1,7 @@
 body {
-    background-color: rgba(248, 140, 248, 0.452);
-      }
+    background-color: rgba(252, 6, 240, 0.158);
+}
+
 .sorting tr:not(.home) {
     cursor: pointer;
 }
@@ -8,16 +9,19 @@ body {
 .ui-state-hightlight {
     border: 2px dashed #000000;
 }
+
 #no-image,
 #product-img {
     width: 100px;
     height: 100px;
 }
+
 .current-image {
     width: 200px;
     height: 200px;
 
 }
+
 ul.gallery {
     padding: 0;
 }

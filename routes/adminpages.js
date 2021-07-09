@@ -53,7 +53,7 @@ router.post("/add-page", (req, res) => {
           .sort({ sorting: 1 })
           .exec((err, pages) => {
             if (err) return console.log(err);
-            req.app.locals.pages = pages;
+            res.locals.pages = pages;
           });
         req.flash("success", `${title} Page added successfully.`);
         console.log(`${title} Page added successfully.`);
@@ -81,7 +81,7 @@ router.post("/reorder-pages", (req, res) => {
             .sort({ sorting: 1 })
             .exec((err, pages) => {
               if (err) return console.log(err);
-              req.app.locals.pages = pages;
+              res.locals.pages = pages;
             });
           console.log("successfully reordered");
         });
@@ -133,7 +133,7 @@ router.post("/edit-page", (req, res) => {
             .sort({ sorting: 1 })
             .exec((err, pages) => {
               if (err) return console.log(err);
-              req.app.locals.pages = pages;
+              res.locals.pages = pages;
             });
           req.flash("success", `${title} Page edited successfully.`);
           console.log(`${title} successfully edited`);
@@ -152,7 +152,7 @@ router.get("/delete-page/:id", isAdmin, (req, res) => {
       .sort({ sorting: 1 })
       .exec((err, pages) => {
         if (err) return console.log(err);
-        req.app.locals.pages = pages;
+        res.locals.pages = pages;
       });
     req.flash("danger", `${page.title} deleted successfully`);
     res.redirect("/admin/pages");

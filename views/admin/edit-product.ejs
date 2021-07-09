@@ -1,52 +1,59 @@
 <%- include('../layouts/adminheader.ejs') %>
-<h2 class="page-title my-2">Edit Product</h2>
-<a href="/admin/products" class="btn btn-primary mb-3">Back to All Products</a>
+<h4 class="page-title my-2">Edit Product</h4>
+<a href="/admin/products" class="btn btn-sm btn-primary mb-3">Back to All Products</a>
 <form method="POST" action="/admin/products/edit-product" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input required type="text" class="form-control" name="title" value="<%= title %>" id="title"
-            placeholder="Title">
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-12">
+            <label for="title">Title</label>
+            <input required type="text" class="form-control" name="title" value="<%= title %>" id="title"
+                placeholder="Title">
+        </div>
     </div>
     <div class="form-group">
         <label for="desc">Description</label>
         <textarea required type="text" id="ta" class="form-control" name="desc" cols="30" rows="10"
             placeholder="Description"><%= desc %></textarea>
     </div>
-    <div class="form-group">
-        <label for="catogery">Catogery</label>
-        <select id="catogery" class="form-control" name="catogery">
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-12">
+            <label for="catogery">Catogery</label>
+            <select id="catogery" class="form-control" name="catogery">
 
-            <% catogeries.forEach(cat=>{ %>
-            <option <% if(cat.slug==catogery){ %> selected="selected" <% } %> value="<%= cat.slug%>"><%= cat.title %>
-            </option>
-            <% }) %>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="price">Price</label>
-        <input required type="number" class="form-control" name="price" value="<%= price %>" id="price"
-            placeholder="Price">
+                <% catogeries.forEach(cat=>{ %>
+                <option <% if(cat.slug==catogery){ %> selected="selected" <% } %> value="<%= cat.slug%>">
+                    <%= cat.title %>
+                </option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="form-group col-md-4 col-sm-12">
+            <label for="price">Price</label>
+            <input required type="number" class="form-control" name="price" value="<%= price %>" id="price"
+                placeholder="Price">
+        </div>
     </div>
     <div class="form-group">
         <label style="display: block;">Current Image</label>
-        <div class="text-center">
+        <div >
             <% if(image==""){ %>
             <img id="no-image" src="/images/no-image.jpg" alt="no-image" class="current-image">
             <% }else{ %>
             <img src="/product-images/<%= id %>/<%= image %>" alt="current-img-preview"
-                class="current-image img-responsive img-thumbnail rounded mx-auto d-block">
+                class="current-image img-responsive img-thumbnail rounded d-block">
             <% } %>
         </div>
 
     </div>
-    <div class="form-group">
-        <label for="image">Update Image</label>
-        <input required type="file" class="form-control" name="image" id="image" placeholder="Update Image">
-        <img src="#" id="imgpreview" alt="img-preview" class="img-responsive rounded mx-auto d-block">
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-12">
+            <label for="image">Update Image</label>
+            <input required type="file" class="form-control" name="image" id="image" placeholder="Update Image">
+            <img src="#" id="imgpreview" alt="img-preview" class="img-responsive rounded m-1 d-block">
+        </div>
     </div>
     <input type="hidden" name="pimage" value="<%= image %>">
     <input type="hidden" name="id" value="<%= id %>">
-    <button type="submit" class="btn btn-outline-primary">Submit</button>
+    <button type="submit" class="btn btn-sm btn-outline-primary">Submit</button>
 </form>
 <hr>
 <h3>Gallery</h3>
@@ -56,7 +63,7 @@
     <li>
         <img src="/product-images/<%= id %>/gallery/thumbs/<%= image %>" alt="product-gallery"
             class="img-responsive img-thumbnail rounded mb-2">&nbsp;
-        <a class="confirmDelete btn btn-outline-danger"
+        <a class="confirmDelete btn btn-sm btn-outline-danger"
             href="/admin/products/delete-image/<%= image %>?id=<%= id %>">Delete</a>
     </li>
     <% } %>

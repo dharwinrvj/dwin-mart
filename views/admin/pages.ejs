@@ -1,6 +1,6 @@
 <%- include('../layouts/adminheader.ejs') %>
-<h2 class="page-title my-2">Pages</h2>
-<a href="/admin/pages/add-page" class="btn btn-primary mb-3">Add a New Pages</a>
+<h4 class="page-title my-2">Pages</h4>
+<a href="/admin/pages/add-page" class="btn btn-sm btn-primary mb-3">Add a New Page</a>
 <div class="table-responsive">
     <table class="table table-bordered table-hover text-center">
         <thead class="thead-light">
@@ -15,7 +15,7 @@
             <tr id="id_<%= page._id %>" class="<%= page.slug %> ">
                 <td><%= page.title %></td>
                 <td>
-                    <a class="btn btn-outline-info" href="/admin/pages/edit-page/<%= page.slug %> ">Edit</a>
+                    <a class="btn btn-sm btn-outline-info" href="/admin/pages/edit-page/<%= page.slug %> ">Edit</a>
                 </td>
                 <% if(page.slug=='home') {%>
                 <td>
@@ -23,7 +23,8 @@
                 </td>
                 <% }else{ %>
                 <td>
-                    <a class="confirmDelete btn btn-outline-danger" href="/admin/pages/delete-page/<%= page._id %> ">Delete</a>
+                    <a class="confirmDelete btn btn-sm btn-outline-danger"
+                        href="/admin/pages/delete-page/<%= page._id %> ">Delete</a>
                 </td>
                 <% } %>
             </tr>

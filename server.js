@@ -6,7 +6,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const MongoClient = require("mongodb").MongoClient;
 const morgan = require("morgan");
 require("dotenv/config");
 const path = require("path");
@@ -123,9 +122,7 @@ app.use(passport.session());
 //cart
 app.get("*", (req, res, next) => {
   res.locals.cart = req.session.cart;
-  
   res.locals.user = req.user;
- 
   next();
 });
 //router-config

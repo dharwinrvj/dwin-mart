@@ -8,7 +8,7 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/android-chrome-192x192.png">
   <link rel="stylesheet" href="/css/admin-style.css">
   <title>Admin Area</title>
   <style>
@@ -17,7 +17,6 @@
     }
   </style>
 </head>
-
 <body>
   <nav style="background-color: rgb(231, 147, 248);" class="navbar navbar-expand-md sticky-top navbar-light">
     <a class="navbar-brand" href="/" target="_blank"><img src="/favicon-32x32.png"> DWinMart</a>
@@ -29,26 +28,31 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/admin/pages"><img src="https://img.icons8.com/clouds/30/000000/pages--v1.png"/>Pages</a>
+          <a class="nav-link" href="/admin/pages"><img
+              src="https://img.icons8.com/clouds/30/000000/pages--v1.png" />Pages</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/admin/catogeries"><img src="https://img.icons8.com/clouds/30/000000/used-product.png"/>Catogeries</a>
+          <a class="nav-link" href="/admin/catogeries"><img
+              src="https://img.icons8.com/clouds/30/000000/used-product.png" />Catogeries</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/admin/products"><img src="https://img.icons8.com/dusk/30/000000/add-list.png"/>Products</a>
+          <a class="nav-link" href="/admin/products"><img
+              src="https://img.icons8.com/dusk/30/000000/add-list.png" />Products</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/users/logout"><img src="https://img.icons8.com/nolan/30/logout-rounded-left.png"/>Hi, Admin(LogOut)</a>
+          <a class="nav-link" href="/users/logout"><img
+              src="https://img.icons8.com/nolan/30/logout-rounded-left.png" />Hi, Admin(LogOut)</a>
 
         </li>
         <li class="nav-item">
 
-          <a class="nav-link" href="/"><img src="https://img.icons8.com/clouds/30/000000/thin-client.png"/>ClientArea</a>
+          <a class="nav-link" href="/"><img
+              src="https://img.icons8.com/clouds/30/000000/thin-client.png" />ClientArea</a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container">
     <%- messages('messages', locals) %>

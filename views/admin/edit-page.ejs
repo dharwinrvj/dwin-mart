@@ -1,15 +1,18 @@
 <%- include('../layouts/adminheader.ejs') %>
-<h2 class="page-title my-2">Edit Page</h2>
-<a href="/admin/pages" class="btn btn-primary mb-3">Back to All Pages</a>
+<h4 class="page-title my-2">Edit Page</h4>
+<a href="/admin/pages" class="btn btn-sm btn-primary mb-3">Back to All Pages</a>
 <form method="POST" action="/admin/pages/edit-page">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input required type="text" class="form-control" name="title" value="<%= title %>" id="title"
-            placeholder="Title">
-    </div>
-    <div class="form-group">
-        <label for="slug">Slug</label>
-        <input required type="text" class="form-control" name="slug" value="<%= slug %>" id="slug" placeholder="Slug">
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-12">
+            <label for="title">Title</label>
+            <input required type="text" class="form-control" name="title" value="<%= title %>" id="title"
+                placeholder="Title">
+        </div>
+        <div class="form-group col-md-4 col-sm-12">
+            <label for="slug">Slug</label>
+            <input required type="text" class="form-control" name="slug" value="<%= slug %>" id="slug"
+                placeholder="Slug">
+        </div>
     </div>
     <!--https://ckeditor.com/ckeditor-4/download-->
     <div class="form-group">
@@ -18,7 +21,7 @@
             placeholder="Content"><%= content %></textarea>
     </div>
     <input type="hidden" name="id" value="<%= id %>">
-    <button type="submit" class="btn btn-outline-primary">Submit</button>
+    <button type="submit" class="btn btn-sm btn-outline-primary">Submit</button>
 </form>
 
 <%- include('../layouts/adminfooter.ejs') %>

@@ -48,7 +48,7 @@ router.post("/add-catogery", (req, res) => {
           .sort({ sorting: 1 })
           .exec((err, catogeries) => {
             if (err) return console.log(err);
-            req.app.locals.catogeries = catogeries;
+            res.locals.catogeries = catogeries;
           });
         req.flash("success", `${title} Catogery added successfully.`);
         console.log(`${title} Catogery added successfully.`);
@@ -76,7 +76,7 @@ router.post("/reorder-catogeries", (req, res) => {
             .sort({ sorting: 1 })
             .exec((err, catogeries) => {
               if (err) return console.log(err);
-              req.app.locals.catogeries = catogeries;
+              res.locals.catogeries = catogeries;
             });
           console.log("successfully reordered");
         });
@@ -127,7 +127,7 @@ router.post("/edit-catogery", (req, res) => {
               .sort({ sorting: 1 })
               .exec((err, catogeries) => {
                 if (err) return console.log(err);
-                req.app.locals.catogeries = catogeries;
+                res.locals.catogeries = catogeries;
               });
             req.flash("success", `${title} Catogery edited successfully.`);
             console.log(`${title} successfully edited`);
@@ -147,7 +147,7 @@ router.get("/delete-catogery/:id", isAdmin, (req, res) => {
       .sort({ sorting: 1 })
       .exec((err, catogeries) => {
         if (err) return console.log(err);
-        req.app.locals.catogeries = catogeries;
+        res.locals.catogeries = catogeries;
       });
     req.flash("danger", `${catogery.title} deleted successfully`);
     res.redirect("/admin/catogeries");

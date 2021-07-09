@@ -1,6 +1,7 @@
 body {
-    background-color: rgba(247, 200, 73, 0.76);
-      }
+    background-color: rgba(252, 224, 146, 0.637);
+}
+
 img.pimage {
     height: 200px;
     width: 200px;
@@ -23,6 +24,7 @@ img.cart-product {
     width: 100px;
     height: 100px;
 }
+
 .alert-error {
     color: #721c24;
     background-color: #f8d7da;

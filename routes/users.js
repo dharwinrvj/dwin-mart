@@ -38,7 +38,7 @@ router.post("/register", (req, res) => {
     Users.findOne({ username: username }, (err, user) => {
       if (err) console.log(errors);
       if (user) {
-        req.flash("danger", "User Name, Choose another !");
+        req.flash("danger", "User Name already exists, Choose another !");
         res.redirect("/users/register");
       } else {
         var user = new Users({

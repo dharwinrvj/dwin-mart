@@ -61,7 +61,7 @@
                 </tbody>
             </table>
         </div>
-        <a href="/cart/clear" class="btn btn-danger btn-sm confirmDelete mb-1">Clear Cart</a>
+        <a href="/cart/clear" class="btn btn-danger confirmDelete mb-1">Clear Cart</a>
         <div class="float-right ">
             <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                 <input type="hidden" name="hosted_button_id"
@@ -83,7 +83,7 @@
                 <input type="hidden" name="return" value="http://dwin-mart.herokuapp.com/cart/payment-success" />
                 <input type="hidden" name="cancel_return" value="http://dwin-mart.herokuapp.com/cart/payment-failed" />
                 <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png"
-                    style="background-color: rgb(121, 245, 121);" class="btn btn-sm" alt="PayPal" name="submit">
+                    style="background-color: rgb(121, 245, 121);" class="btn" alt="PayPal" name="submit">
             </form>
         </div>
         <% }else{ %>

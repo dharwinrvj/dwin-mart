@@ -1,6 +1,6 @@
 <%- include('layouts/header.ejs') %>
 <h4 class="text-center"><%= title %></h4>
-<form method="POST" action="/users/login">
+<form method="POST" action="/users/login" id="frm-login" autocomplete="off">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="name">UserName</label>
@@ -21,4 +21,9 @@
         </button>
     </div>
 </form>
+<script>
+    $(function () {
+        $('#frm-login').validate({})
+    })
+</script>
 <%- include('layouts/footer.ejs') %>

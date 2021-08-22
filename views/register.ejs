@@ -2,7 +2,7 @@
 <h4 class="text-center">
     <%= title %>
 </h4>
-<form method="POST" action="/users/register">
+<form method="POST" action="/users/register" id="frm-reg" autocomplete="off">
     <div class="form-row justify-content-center">
         <div class="form-group col-md-6">
             <label for="name">Name</label>
@@ -42,4 +42,21 @@
         <button type="submit" style="background-color: rgba(247, 171, 8, 0.829);" class="btn">Register</button>
     </div>
 </form>
+<script>
+    $(function () {
+        $('#frm-reg').validate({
+            rules: {
+                cpassword: {
+                    equalTo: '#password',
+                }
+            },
+            messages: {
+                cpassword: {
+                    equalTo: 'Please enter the same password as above',
+                }
+            }
+        })
+    
+    })
+</script>
 <%- include('layouts/footer.ejs') %>

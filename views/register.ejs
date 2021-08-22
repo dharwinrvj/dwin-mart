@@ -46,17 +46,27 @@
     $(function () {
         $('#frm-reg').validate({
             rules: {
+                name: 'required',
+                mail: 'required',
+                username: 'required',
+                password: 'required',
                 cpassword: {
+                    required: true,
                     equalTo: '#password',
                 }
             },
             messages: {
+                name: '* Please enter your name',
+                mail: '* Please enter your email address',
+                username: '* Please enter your username',
+                password: '* Please enter your password',
                 cpassword: {
-                    equalTo: 'Please enter the same password as above',
+                    required: '* Please confirm your password',
+                    equalTo: '* Please enter the same password as above',
                 }
             }
         })
-    
+
     })
 </script>
 <%- include('layouts/footer.ejs') %>

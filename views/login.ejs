@@ -23,7 +23,16 @@
 </form>
 <script>
     $(function () {
-        $('#frm-login').validate({})
+        $('#frm-login').validate({
+            rules: {
+                username: 'required',
+                password: 'required'
+            },
+            messages: {
+                username: '* Please enter your username',
+                password: '* Please enter your password'
+            }
+        })
     })
 </script>
 <%- include('layouts/footer.ejs') %>

@@ -13,8 +13,6 @@ const session = require("express-session");
 const expressValidator = require("express-validator");
 const fileupload = require("express-fileupload");
 const passport = require("passport");
-//set database
-const config = require("./config/database");
 // routes
 const pages = require("./routes/pages");
 const admincatogeries = require("./routes/admincatogeries");
@@ -144,11 +142,20 @@ app.listen(port, () => {
   console.log("application is started " + port);
 });
 //database connection
-
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useUnifiedTopology", true);
-
-mongoose.connect(config.database, (err) => {
+//local db
+/*
+mongoose.connect("mongodb://localhost:27017/dmart", (err) => {
   if (err) throw err;
   console.log("DB connected");
 });
+*/
+//remote db
+mongoose.connect(
+  "mongodb+srv://dharwin:9715928749@dharwin.wkbz4.mongodb.net/dmart?retryWrites=true&w=majority",
+  (err) => {
+    if (err) throw err;
+    console.log("DB connected");
+  }
+);

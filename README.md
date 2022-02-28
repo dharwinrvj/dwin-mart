@@ -1,5 +1,5 @@
 # dwin-mart
-## E-Commerce App using NodeJs and MongoDB
+## E-Commerce App using NodeJS and MongoDB
 ## Live Demo: https://dwin-mart.herokuapp.com
 <img src="/demo_images/0.png">
 

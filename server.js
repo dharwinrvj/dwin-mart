@@ -153,7 +153,7 @@ mongoose.connect("mongodb://localhost:27017/dmart", (err) => {
 */
 //remote db
 mongoose.connect(
-  "mongodb+srv://dharwin:9715928749@dharwin.wkbz4.mongodb.net/dmart?retryWrites=true&w=majority",
+  "mongodb+srv://dharwin:9715928749@dharwin.wkbz4.mongodb.net/dwin-mart?retryWrites=true&w=majority",
   (err) => {
     if (err) throw err;
     console.log("DB connected");

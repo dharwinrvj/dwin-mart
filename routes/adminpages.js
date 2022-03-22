@@ -143,7 +143,7 @@ router.post("/edit-page", (req, res) => {
     }
   });
 });
-//delete catogery
+//delete page
 router.get("/delete-page/:id", isAdmin, (req, res) => {
   Pages.findByIdAndDelete({ _id: req.params.id }, (err, page) => {
     if (err) console.log(err);
